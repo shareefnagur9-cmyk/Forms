@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+    <style>
+        *{
+            border-radius: 6px;
+            
+        
+        }
+        @font-face {
+          font-family: shareef;
+          src: url(./Amazon\ Ember.ttf);
+        }
+        *{
+          font-family: shareef;
+        }
+        input:focus{
+            caret-color: #ffd814;
+            border: 1px solid #ffd814;
+            outline: #ffd814;
+        }
+        input:hover{
+          border: 2px solid #ffd814;
+        }
+        input{
+          padding: 10px;
+        }
+        button{
+            padding: 10px;
+        }
+        select{
+            padding: 10px;
+        }
+        input{
+            border: 1px solid  #888c8c;
+            padding: 10px;
+        }
+        #amazoncreate{
+            width: 500px;
+            /* height: 500px; */
+            background-color: #ffffff;
+            border: 1px solid #888c8c;
+            font-family: "Amazon Ember",Arial,sans-serif;
+            margin: auto;
+            padding: 50px;
+            margin-top: -40px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        h1{
+            text-align: center;
+            margin-right: 30px;
+            
+        }
+        .i1{
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #888c8c;
+        }
+        select{
+            width: 26%;
+            margin-left:5px;
+        }
+        #verify{
+            width: 100%;
+            box-sizing: border-box;
+            /* border: 1px solid; */
+            border-radius: 6px;
+            background-color: #ffd814;
+            margin-top: -15px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+
+        }
+        .i5{
+            width: 100%;
+            box-sizing: border-box;
+            margin-top:10px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+        }
+        .i1{
+            width: 100%;
+            box-sizing: border-box;
+            margin-top:10px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            padding: 10px;
+        }
+        .i4{
+            width: 70%;
+            box-sizing: border-box;
+            margin-top:10px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            padding: 12px;
+        }
+        label{
+           margin-left: 10px;
+        }
+        p{
+            margin-left: 5px;
+            margin-top: -10px;
+        }
+        .line1{
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid #888c8c;
+            margin-bottom: 5px;
+            margin-left: 5px;
+        }
+        
+        h4,h2{
+            margin-left: 10px;
+            box-sizing: border-box;
+        }
+        
+        .amazon_anchor{
+            display: block;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-top: -15px;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        div{
+            
+            width: 100%;
+            border-bottom: 1px solid #888c8c;
+             margin-bottom: 10px;
+             margin-top: 10px; 
+             margin-left: 10px;
+      }
+      h5{
+        box-sizing: border-box;
+        margin-top: 5px;
+        margin-left: 10px;
+      }
+      .sign{
+        font-size: 15px;
+        text-decoration: none;
+      }
+      article{
+        margin-bottom: 10px;
+        margin-left: 5px;
+      }
+      a{
+        color: #007185;
+      }
+      a:hover{
+        color: rgba(255, 0, 0, 0.507);
+      }
+      #log{
+            width: 500px;
+             background-color: #ffffff;
+             border: 1px solid #888c8c;
+             font-family: "Amazon Ember",Arial,sans-serif;
+             margin: auto;
+             padding: 50px;
+             box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      }
+      #log h1{
+        line-height: 36px;
+        color: #0f1111;
+        font-weight: 400;
+       font-size: 28px;     
+      }
+      #log #log-id{
+        width: 100%;
+        margin-left: 10px;
+        margin-bottom: 20px;
+        border-radius: 6px;
+
+      }
+      #btn-log{
+        width: 105%;
+        background-color: #ffd814;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+
+      }
+      #log-artice{
+        margin-left: 10px;
+      }
+      #log .line-log{
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #888c8c;
+        margin-left: 6px;
+      }
+      .buy{
+             color: #0f1111;
+             font-size: 17px;
+             font-weight: bold;
+             display: block;
+             margin-left:10px;
+             margin-top: 30px;
+             margin-bottom: 0px;
+      }
+      #shop{
+        display: block;
+        margin-left: 10px;
+        margin-top: 0px;
+        margin-bottom: 40px;
+      }
+      #log-id1{
+        width: 100%;
+       margin-left: 7px;
+       margin-bottom: 20px;
+       border-radius: 6px;
+       display: block;
+        margin-top: 10px;
+}
+input {
+  border: 1px solid #888c8c
+      }
+      .line4::before,::after{
+        display: block;
+        width: 20%;
+        border-bottom: 1px solid black;
+      }
+      .line4{
+        display: block;
+        margin: auto;
+      }
+        img{
+          display: block;
+          margin-left: 500px;
+          width: 200px;
+          margin-top: 10px;
+          
+        }
+       #free-btn{
+         color: #888c8c;
+         padding: 10px;
+         text-decoration: none;
+         text-align: center;
+       }
+       button:hover{
+        opacity: 30%;
+       }
+
+       
+       
+    </style>
+</head>
+<body>
+    
+    <img src="https://pngimg.com/uploads/amazon/amazon_PNG21.png" alt="" width="100px">
+    <form action="" id="amazoncreate">
+        <h2>Create Account</h2>
+         <label for="name">Your name</label><br>
+         <input type="text" placeholder="First and last" id="name" class="i1" autofocus><br>
+         <label for="phone" >Phone Number</label><br>
+         <select name="call" id="phone" class="c2"><br>
+            <option value="IN+91">IN+91</option>
+            <option value="PK+91">PK+92</option>
+             </select>
+            <input type="tel" placeholder="Mobile Number" class="i4"><br>
+            <label for="pass">Password</label><br>
+            <input type="password" name="mypass" id="pass" class="i5" placeholder="At least 6 characters"><br>
+             <p>To verify your number, we will send you a text message with a temporary code. Message and data rates may apply.</p>   
+             <button id="verify">Verfiy Mobile Number</button>
+             <span class="line1"></span>
+             <h4>Buying for work?</h4>
+             <a href="" class="amazon_anchor">Create a free business account</a>
+             <div></div>
+             <h5>Already having an account? <a href="#log" class="sign">sign in ></a></h5>
+             <article>By creating an account, you agree to Amazon's <br>
+                 <a href="#">conditions of use</a>and <a href="#">privacy notice</a></article>
+          
+
+    </form>
+    <br>
+    <br>
+    <form action="" id="log">
+       <h1>Sign in</h1>
+       <label for="Email or phonenumber">Email or phonenumber</label><br>
+       <input type="text" id="log-id1">
+       <button id="btn-log">Continue</button>
+       <article id="log-article">By continuing, you agree to Amazon's <br><a href="http://">Conditions of Use </a> and <a href="#">Privacy Notice.</a> </article>
+       <article id="need">ʌ <a href="#">Need help?</a></article>
+       <span class="line-log"></span>
+       <span class="buy">buying for work?</span><br>
+       <a href="#" id="shop">shop on Amazon  Business </a>
+       <span class="line-log"></span>
+       <article>new to amazon?</article>
+       <a href="#amazoncreate" id="free-btn" style="border-radius: 20px; display: block;border: 1px solid;width: 100%;">create your amazon account</a>
+    </form>
+    
+</body>
+</html>
