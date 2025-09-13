@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first{
+            width: 600px;
+            height: 400px;
+            margin: auto;
+            margin-top: 100px;
+            border: solid;
+            overflow: hidden;
+            transition:  transform 5s;
+        }
+        .first:hover{
+            transform: translate(100px);
+        }
+        .first img{
+            width: 50px;
+            height: 100%;
+            transition:  transform 5s;
+        }
+        .first img:hover{
+             border-radius: 10px;
+            width: 60%; 
+            transform: scale(2);
+        }
+        button:focus{
+            background-color: rgb(31, 214, 214);
+            color: aliceblue;
+            font-weight: bold;
+            border: none;
+            padding: 10px;
+
+        }
+        button{
+            transition: 5s;
+        }
+        .second{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: auto;
+            transition:transform 5s ;
+        }
+        .second:hover{
+            transform: rotatex(219deg);
+            transform: translate(100 30);
+        }
+        /* button:hover{
+            transform: translate(100px 10px);
+        } */
+    </style>
+</head>
+<body>
+    <div class="first">
+        <img src="../images/kakinda.jpeg" alt="">
+        <img src="../images/nagarjuna5.jpg" alt="">
+        <img src="../images/nagarjuna_res.jpg" alt="">
+        <img src="../images/nagarjuakonda.jpg" alt="">
+        <img src="../images/nagarjunakonda1.jpg" alt="">
+        <img src="../images/nagarjuakonda.jpg" alt="">
+    </div>
+    <button>
+        images
+    </button>
+    <div class="second"></div>
+</body>
+</html>
