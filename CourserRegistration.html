@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration</title>
+    <link rel="icon" href="https://www.shutterstock.com/image-vector/thai-university-student-uniform-presents-laptop-2392234585">
+    <link rel="stylesheet" href="CourserRegistration.css">
+</head>
+<body>
+   <h1 id="cr">Course Registration Form</h1> 
+   <form action="">
+    <fieldset>
+        <legend>Personal Details</legend>
+            <table>
+        <tr>
+            <td><label for="">Name</label></td>
+            <td><input type="text" name="fname" required>
+                <p id="name">Enter your Name</p>
+            </td>
+            
+        </tr>
+        <tr>
+            <td><label for="">SurName</label></td>
+            <td><input type="text" name="sname" required>
+            <p id="sname">Enter Your Surname</p>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="">Mobile Number</label></td>
+            <td><input type="tel" required name="phno" placeholder="8340977129">
+            <p id="phno">Enter Your Pho</p>
+                </td>
+        </tr>
+        <tr>
+            <td><label for="">Email</label></td>
+            <td><input type="email" name="mail" required placeholder="nagurshareef@gmail.com">
+            
+                <img src="../Assessts/wrong.jpg" alt="not" id="notvalid">
+                <img src="../Assessts/right.jpg" alt="" id="valid">
+                </td>
+        </tr>
+        <tr>
+            <td><label for="">Password</label></td>
+            <td><input type="password" placeholder="Enter Password" name="pass" required>
+            <p id="pass">enter Your Password</p>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="">Confirm Password</label></td>
+           <td><input type="password" required name="cpass">
+            <p id="cpass"> Conform YOur Password</p>
+            </td>
+        </tr>
+         <tr>
+       <td><label for="">DOB</label></td>
+       <td><input type="date" required></td>
+         </tr>
+         <tr>
+            <td><label for="">Gender</label></td>
+            <td><input type="radio" name="gender" value="Male"><label for="" >Male<label>
+            <input type="radio" name="gender" Value="Female"><label for="" >Female<label>
+            <input type="radio" name="gender" value="Other"><label for="" >Other</label></td>
+         </tr>
+        <tr>
+            <td><label for="">Select Country</label></td>
+            <td>
+                <select name="country" id="" required>
+                    <option value="Ind">India</option>
+                    <option value="Aus">Austrila</option>
+                    <option value="Eng">England</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+        <td><label for="">select Resume</label></td>
+        <td><input type="file"></td>
+        </tr>
+    <tr>
+        <td><input type="reset" name="reset"></td>
+    </tr>
+    </table>
+    </fieldset>
+    <fieldset>
+        <table>
+            <legend>Course Details</legend>
+           <tr>
+            <td><label for="">Select Course</label></td>
+           </tr>
+           <tr>
+           <td>
+             <select name="" id="" required>
+                <option value="Java">Java Full Stack</option>
+                <option value="Python">Python Full Stack</option>
+            </select>
+           </td>
+           </tr>
+           <tr>
+            <td><label for="">Delivery Mode</label></td>
+            <td><input type="radio" name="mode"><label for="">Offline</label>
+            <input type="radio" name="mode"><label for="">Online</label>
+            </td>
+           </tr>
+           <tr>
+            <td>Suggestion</td>
+           </tr>
+           <tr>
+            <td>
+                <input type="textarea" rows="120" cols="10"></textarea>
+            </td>
+           </tr>
+        </table>
+    </fieldset>
+   </form>
+ <button><a href="">Submit</a></button>
+</body>
+</html>
