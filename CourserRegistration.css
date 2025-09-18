@@ -1,0 +1,135 @@
+*{
+    @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Merienda:wght@300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      font-family: "Poppins", sans-serif; 
+
+}
+#cr:hover{
+   background: #1d0024;
+background: linear-gradient(200deg, rgb(170, 68, 195) 19%, rgb(192, 206, 30) 41%, rgb(147, 16, 16) 66%, rgba(1, 163, 196, 0.76) 100%);
+background-clip: text;
+color: transparent;
+}
+input[name="fname"]+ #name{
+    display: none;
+}
+input[name="fname"]:hover+ #name{
+    display: inline;
+}
+p{
+    display: none; 
+}
+/* name="sname */
+input[name="sname"]:hover+ #sname{
+    display: inline;
+}
+input[name="fname"]:hover+ #name{
+    display: inline;
+}
+/* name="phno" */
+input[name="phno"]:hover+ #phno{
+    display: inline;
+}
+input[name="mail"]:hover+ #mail{
+    display: inline;
+}
+input[name="pass"]:hover+ #pass{
+    display: inline;
+}
+input[name="cpass"]:hover+ #cpass{
+    display: inline;
+}
+img{
+     height: 20px;
+     width: 20px;
+     display: none;
+}
+input[type="email"]:focus:valid~img#valid{
+    display: inline; 
+    height: 20px;
+    width: 20px;
+}
+input[type="email"]:focus:Invalid~img#notvalid{
+    display: inline; 
+    height: 20px;
+    width: 20px;
+}
+input:focus{
+    background-color: blanchedalmond;
+}
+input:required{
+    border: 5px solid black;
+}
+body{
+    background: #EEAECA;
+background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+input:hover{
+   background-color:blue;
+}
+input[type="radio"]:checked{
+    height: 20px;
+    width: 20px;
+}
+input[type="radio"]:checked+label{
+    height: 20px;
+    width: 20px;
+    font-size:20px;
+}
+fieldset{
+   border:  3px solid blue;
+}
+form{
+    width: 600px;
+}
+select{
+    background-color: #EEAECA;
+}
+input:optional{
+    border: 4px dotted green ;
+}
+label{
+    color: red;
+    font-weight: bold;
+}
+input[type="reset"]{
+    width: 160px;
+    font-weight: bold;
+    color: red;
+    border-radius: 20px;
+}
+legend{
+    font-weight: bold;
+    color: red;
+    font-size: 20px;
+}
+button{
+    margin-top: 10px;
+    padding: 5px;
+    margin-left: 500px;
+    border-radius: 10px;
+}
+a{
+    text-decoration: none;
+}
+button a:link{
+    color: red;
+    font-size: 20px;
+    background-color: aqua;
+}
+button a:active{
+    color: blue;
+}
+a:hover{
+    text-decoration: underline;
+}
+h1{
+    margin-left: 300px;
+}
+form{
+    margin-left: 300px;
+}
+#cr{
+    color: red;
+}
+
+
