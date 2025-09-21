@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kanigiri Flip Card</title>
+  <style>
+    /* ---------- reset & base ---------- */
+    * { box-sizing: border-box; }
+    html,body { height:100%; margin:0; }
+    body {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#0b0b0b;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color:#fff;
+      padding:24px;
+    }
+
+    /* ---------- perspective container ---------- */
+    #card_container{
+      width: 450px;
+      max-width:90vw;
+      height: 450px;
+      perspective: 1200px;
+    }
+
+    /* ---------- animated border wrapper (glow + gradient) ---------- */
+    .card-wrap{
+      position:relative;
+      width:100%;
+      height:100%;
+      border-radius:18px;
+      padding:6px;                 /* border thickness */
+      background:transparent;
+    }
+
+    /* pseudo-element creates an animated gradient border glow */
+    .card-wrap::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:18px;
+      padding:3px;
+      background: conic-gradient(from 120deg, #3f5efb, #fc466b, #f7b500, #3f5efb);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      z-index:0;
+      filter: blur(10px);
+      opacity:0.95;
+      transition: filter .3s, opacity .3s;
+    }
+
+    /* slightly dark inner frame so border stands out */
+    .card-wrap > .card-inner-frame{
+      position:relative;
+      width:100%;
+      height:100%;
+      border-radius:12px;
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(10,10,10,0.95), rgba(20,20,20,0.95));
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      z-index:1;
+    }
+
+    /* ---------- card (actual flipping element) ---------- */
+    #card{
+      width:100%;
+      height:100%;
+      border-radius:12px;
+      transform-style: preserve-3d;
+      transition: transform 0.65s cubic-bezier(.2,.9,.2,1);
+      position:relative;
+    }
+
+    /* ---------- faces ---------- */
+    #frontcard, #backcard{
+      position:absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      backface-visibility: hidden;
+      border-radius:12px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+    }
+
+    /* front */
+    #frontcard{
+      background: #f7f3ef;
+      color:#111;
+    }
+    /* make front image fully cover the face */
+    #frontcard img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      border-radius:6px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    }
+
+    /* back: rotated so it's hidden until flip */
+    #backcard{
+      padding:12px;
+      transform: rotateY(180deg);
+      background: radial-gradient(circle at 10% 20%, rgba(63,94,251,0.95) 0%, rgba(252,70,107,0.95) 60%);
+      background-size: 300% 300%;
+      animation: flow 6s linear infinite;
+      color:#fff;
+      align-items:stretch;
+      justify-content:flex-start;
+    }
+
+    /* IMPORTANT: keep inner container NOT rotated so content reads normally */
+    #backcard_container{
+      transform: none;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      height:100%;
+      justify-content:space-between;
+    }
+
+    /* Make the top section (image) flexible so it fills space */
+    #backcard_container > .img-wrap{
+      flex: 1 1 auto;          /* grow to take available vertical space */
+      display:block;
+      width:100%;
+      border-radius:8px;
+      overflow:hidden;
+    }
+    /* ensure the image covers the area while preserving aspect ratio */
+    #backcard_container > .img-wrap img{
+      width:100%;
+      height:100%;
+      object-fit:cover;        /* cover avoids letterboxing and fills container */
+      display:block;
+      border-radius:6px;
+    }
+
+    /* actions/footer sit below the image and do not overlap */
+    .actions {
+      display:flex;
+      gap:8px;
+      align-items:center;
+      justify-content:flex-end;
+      padding-top:6px;
+    }
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 12px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      border:0;
+      cursor:pointer;
+      background: linear-gradient(90deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+      color:#fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25), 0 1px 0 rgba(255,255,255,0.02) inset;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s;
+    }
+    .btn:hover{ transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,0.45); }
+    .btn.primary {
+      background: linear-gradient(90deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* flip trigger on hover/focus */
+    .card-wrap:hover::before{ filter: blur(6px); opacity:1; }
+    .card-wrap:focus-within::before{ filter: blur(6px); opacity:1; }
+    .card-wrap:hover #card,
+    .card-wrap:focus-within #card{
+      transform: rotateY(180deg);
+    }
+
+    /* animated background movement */
+    @keyframes flow {
+      0%{ background-position: 0% 50%; }
+      50%{ background-position: 100% 50%; }
+      100%{ background-position: 0% 50%; }
+    }
+
+    /* responsive tweaks */
+    @media (max-width:420px){
+      #card_container{ height:320px; }
+      .Head{ font-size:18px; }
+      .para{ font-size:12px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="card_container">
+    <div class="card-wrap" tabindex="0" aria-label="Flip card for Kanigiri">
+      <div class="card-inner-frame">
+        <div id="card" role="group" aria-roledescription="3D flip card">
+          <!-- FRONT -->
+          <div id="frontcard" aria-hidden="false">
+            <img src="../Assessts/SiddiqAlludu.jpg"
+                 alt="Kanigiri hill and surroundings">
+          </div>
+
+          <!-- BACK -->
+          <div id="backcard" aria-hidden="true">
+            <div id="backcard_container">
+              <!-- Make sure this wrapper contains the image -->
+              <div class="img-wrap">
+                <img src="../Assessts/Friends1.jpg" alt="Friends photo">
+              </div>
+
+              <div class="actions">
+                <a class="btn primary" href="#" id="kng">Learn more</a>
+                <a class="btn" href="https://www.google.com/search?q=Kanigiri" target="_blank" rel="noopener">Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- .card-inner-frame -->
+    </div> <!-- .card-wrap -->
+  </div>
+</body>
+</html>
